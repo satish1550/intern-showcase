@@ -10,6 +10,9 @@ export default async function handler(
   }
 
   try {
+    if (!process.env.GOOGLE_SCRIPT_URL) {
+      throw new Error('GOOGLE_SCRIPT_URL is not configured')
+    }
     const { data } = await axios.get(process.env.GOOGLE_SCRIPT_URL)
     
     if (!data.success) {
