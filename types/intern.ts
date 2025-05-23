@@ -7,4 +7,5 @@ export interface Intern {
   resumeUrl: string
   linkedinUrl: string
   team?: string
+  jobOpportunities?: string[]
 }

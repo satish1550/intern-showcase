@@ -6,9 +6,12 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Intern Talent Showcase",
+  title: "Intern Talent Showcase | Hyperverge",
   description: "Discover talented interns who are ready for their next opportunity",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/icon.png',
+  },
 }
 
 export default function RootLayout({
