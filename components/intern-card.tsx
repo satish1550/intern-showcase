@@ -50,7 +50,9 @@ export function InternCard({ intern }: InternCardProps) {
 
   return (
     <div
-      className="h-[280px] perspective-1000 group"
+      className={cn(
+        "perspective-1000 group", "h-[300px]"
+      )}
       ref={cardRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -117,10 +119,10 @@ export function InternCard({ intern }: InternCardProps) {
           </div>
 
           <p className="text-sm text-gray-500 mb-3">Unlocking impact in:</p>
-          <div className="flex flex-wrap justify-center gap-2 mt-auto">
+          <div className="w-full flex flex-wrap justify-center gap-2 mt-auto">
             {intern.jobOpportunities?.slice(0, 3).map((opportunity, index) => (
               <span key={index} className="skill-tag">
-                {opportunity}
+                {opportunity.length > 35 ? `${opportunity.slice(0, 10)}...` : opportunity}
               </span>
             ))}
           </div>
@@ -147,41 +149,39 @@ export function InternCard({ intern }: InternCardProps) {
             <p className="text-gray-700 mb-4 text-sm leading-relaxed">
               {intern.blurb}
             </p>
-            <div className="flex space-x-4 w-full justify-center mb-2">
-              <a
-                href={intern.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-icon bg-gray-50 text-gray-600"
-                onClick={(e) => e.stopPropagation()}
-                aria-label={`View ${intern.name}'s resume`}
-              >
-                <FileText className="h-5 w-5" />
-              </a>
-              <a
-                href={intern.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-icon bg-gray-50 text-gray-600"
-                onClick={(e) => e.stopPropagation()}
-                aria-label={`View ${intern.name}'s LinkedIn profile`}
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-auto pt-4 border-t border-gray-100">
-            <div className="flex justify-between items-center">
-              {/* Skills Section */}
-              <div className="flex flex-wrap gap-2 w-full justify-center">
-                {intern.skills.map((skill, index) => (
+            <div className="flex flex-wrap justify-center gap-2 mt-auto">
+              <p className="text-sm text-gray-500 mb-3">Unlocking impact in:</p>
+              <div className="flex flex-wrap justify-center text-center gap-2 mt-auto">
+                {intern.jobOpportunities?.slice(0, 3).map((opportunity, index) => (
                   <span key={index} className="skill-tag">
-                    {skill}
+                    {opportunity}
                   </span>
                 ))}
               </div>
             </div>
+          </div>
+
+          <div className="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+            <a
+              href={intern.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-icon bg-gray-50 text-gray-600"
+              onClick={(e) => e.stopPropagation()}
+              aria-label={`View ${intern.name}'s resume`}
+            >
+              <FileText className="h-5 w-5" />
+            </a>
+            <a
+              href={intern.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-icon bg-gray-50 text-gray-600"
+              onClick={(e) => e.stopPropagation()}
+              aria-label={`View ${intern.name}'s LinkedIn profile`}
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
           </div>
         </div>
       </div>
