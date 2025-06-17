@@ -51,7 +51,7 @@ export function InternCard({ intern }: InternCardProps) {
   return (
     <div
       className={cn(
-        "perspective-1000 group", "h-[300px]"
+        "perspective-1000 group", "h-[330px]"
       )}
       ref={cardRef}
       onMouseEnter={() => setIsHovered(true)}
@@ -73,7 +73,7 @@ export function InternCard({ intern }: InternCardProps) {
         {/* Front of card */}
         <div
           className={cn(
-            "card-content-front card-shadow flex flex-col items-center justify-center text-center",
+            "card-content-front card-shadow flex flex-col items-center justify-center text-center h-full overflow-y-auto",
             isHovered && !isFlipped ? "card-shadow-hover" : ""
           )}
         >
