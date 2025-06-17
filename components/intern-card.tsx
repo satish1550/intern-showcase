@@ -149,9 +149,9 @@ export function InternCard({ intern }: InternCardProps) {
             <p className="text-gray-700 mb-4 text-sm leading-relaxed">
               {intern.blurb}
             </p>
-            <div className="flex flex-wrap justify-center gap-2 mt-auto">
+            <div className="flex flex-col justify-center text-center gap-2 mt-auto">
               <p className="text-sm text-gray-500 mb-3">Unlocking impact in:</p>
-              <div className="flex flex-wrap justify-center text-center gap-2 mt-auto">
+              <div className="flex flex-wrap justify-center text-center gap-2">
                 {intern.jobOpportunities?.slice(0, 3).map((opportunity, index) => (
                   <span key={index} className="skill-tag">
                     {opportunity}
