@@ -8,4 +8,5 @@ export interface Intern {
   linkedinUrl: string
   team?: string
   jobOpportunities?: string[]
+  whatsapp?: string
 }

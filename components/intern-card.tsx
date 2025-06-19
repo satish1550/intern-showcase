@@ -18,6 +18,7 @@ interface InternCardProps {
   intern: Intern;
 }
 
+
 export function InternCard({ intern }: InternCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -115,6 +116,18 @@ export function InternCard({ intern }: InternCardProps) {
               >
                 <Linkedin className="h-5 w-5" />
               </a>
+              {intern.whatsapp && (
+                <a
+                  href={`https://wa.me/91${intern.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-icon bg-gray-50 text-gray-600"
+                  aria-label={`Chat with ${intern.name} on WhatsApp`}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <img src="/images/whatsapp.png" alt="WhatsApp" className="h-5 w-5" />
+                </a>
+              )}
             </div>
           </div>
 
@@ -182,6 +195,18 @@ export function InternCard({ intern }: InternCardProps) {
             >
               <Linkedin className="h-5 w-5" />
             </a>
+            {intern.whatsapp && (
+              <a
+                href={`https://wa.me/91${intern.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-icon bg-gray-50 text-gray-600"
+                onClick={(e) => e.stopPropagation()}
+                aria-label={`Chat with ${intern.name} on WhatsApp`}
+              >
+                <img src="/images/whatsapp.png" alt="WhatsApp" className="h-5 w-5" />
+              </a>
+            )}
           </div>
         </div>
       </div>
